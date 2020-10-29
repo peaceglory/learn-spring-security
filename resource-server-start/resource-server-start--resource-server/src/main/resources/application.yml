@@ -3,4 +3,21 @@ server:
   servlet: 
     context-path: /lsso-resource-server
 
+
 ####### resource server configuration properties
+spring:
+  security:
+    oauth2:
+      # Needed because the resource server must validate the token issued by the auth server
+      # So the auth server exposes a public key which is used for token validation
+      resourceserver:
+        jwt:
+          # This is a short alternative to the more explicit configuration. It's also OK to have it alongside the explicit values.
+          issuer-uri: http://localhost:8083/auth/realms/baeldung
+          jwk-set-uri: http://localhost:8083/auth/realms/baeldung/protocol/openid-connect/certs
+
+logging:
+  level:
+    org:
+      springframework:
+        security: DEBUG
