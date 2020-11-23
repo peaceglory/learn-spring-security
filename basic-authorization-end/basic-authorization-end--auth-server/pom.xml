@@ -41,6 +41,7 @@
             <groupId>org.jboss.resteasy</groupId>
             <artifactId>resteasy-jackson2-provider</artifactId>
             <version>${resteasy.version}</version>
+            <scope>runtime</scope>
         </dependency>
 
         <dependency>
