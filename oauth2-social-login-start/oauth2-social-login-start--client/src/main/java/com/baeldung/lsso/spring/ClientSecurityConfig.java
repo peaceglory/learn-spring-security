@@ -16,10 +16,15 @@ public class ClientSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {// @formatter:off
         http.authorizeRequests()
             .antMatchers("/").permitAll()
-            .anyRequest().authenticated();
+            .anyRequest().authenticated()
+            .and()
+            .oauth2Login()
+            .and()
+            .logout()
+            .logoutSuccessUrl("/");
     }// @formatter:on
 
-    //@Bean
+    @Bean
     WebClient webClient(ClientRegistrationRepository clientRegistrationRepository, OAuth2AuthorizedClientRepository authorizedClientRepository) {
         ServletOAuth2AuthorizedClientExchangeFilterFunction oauth2 = new ServletOAuth2AuthorizedClientExchangeFilterFunction(clientRegistrationRepository, authorizedClientRepository);
         oauth2.setDefaultOAuth2AuthorizedClient(true);

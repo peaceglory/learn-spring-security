@@ -16,6 +16,20 @@
     </nav>
     <div class="container">
         <!-- Welcome Text -->
+        <h1>Welcome!!</h1>
+        <div class="row">
+            <div class="col-sm-2">
+                <div>
+                    <!-- Profile Image -->
+                    <img th:src="@{${img}}" class="img-thumbnail" width="100" height="100"/>
+                </div>
+            </div>
+            <div class="col">
+                <!-- Basic Attributes -->
+                <div th:text="${name}"/>
+                <div th:text="${id}"/>
+            </div>
+        </div>
         <div class="row">
             <div class="col-sm-2">
                 <div>
@@ -31,6 +45,10 @@
             <div class="col">
                 <div>
                 <!-- Repos -->
+                    <h4>User Repos</h4>
+                    <div th:each="repo : ${repos}">
+                        <div th:text="${repo.name}"/>
+                    </div>
                 </div>
             </div>
         </div>

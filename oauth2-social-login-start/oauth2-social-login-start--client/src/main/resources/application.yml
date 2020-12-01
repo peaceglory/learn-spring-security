@@ -1,7 +1,14 @@
 spring:
   thymeleaf:
     cache: false
-    
+
+  security:
+    oauth2:
+      client:
+        registration:
+          github:
+            client_id: bee6226ac3c405e851f6
+            client_secret: 78388256cecb90b58694ae48e2b5dbc6f36d3020
 server: 
   port: 8082
   servlet: 
@@ -10,4 +17,6 @@ server:
 logging: 
   level: 
     org.springframework: INFO
+    org.springframework.security: TRACE
+
         
