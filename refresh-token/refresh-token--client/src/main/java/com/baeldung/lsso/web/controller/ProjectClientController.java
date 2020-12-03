@@ -21,8 +21,11 @@ public class ProjectClientController {
     @Value("${resourceserver.api.project.url:http://localhost:8081/lsso-resource-server/api/projects/}")
     private String projectApiUrl;
 
-    @Autowired
-    private WebClient webClient;
+    private final WebClient webClient;
+
+    public ProjectClientController(WebClient webClient) {
+        this.webClient = webClient;
+    }
 
     @GetMapping("/projects")
     public String getProjects(Model model) {
