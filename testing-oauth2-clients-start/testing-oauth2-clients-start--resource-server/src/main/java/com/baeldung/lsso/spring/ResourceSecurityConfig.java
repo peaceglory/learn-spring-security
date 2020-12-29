@@ -22,4 +22,6 @@ public class ResourceSecurityConfig extends WebSecurityConfigurerAdapter {
                 .jwt();
     }//@formatter:on
 
+
+
 }
